@@ -1,0 +1,103 @@
+Fri, 23 Sep 2016 00:30:17-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:30:17-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:30:17-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:30:22-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:30:22-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:30:22-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:30:27-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:30:28-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:30:28-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:30:33-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:30:33-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:30:33-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:30:38-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:30:38-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:30:38-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:30:52-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:30:52-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:30:52-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:30:58-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:30:58-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:30:58-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:03-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:08-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:08-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:08-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:13-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:14-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:14-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:19-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:19-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:19-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:24-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:24-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:24-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:29-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:30-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:30-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:35-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:35-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:35-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:40-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:40-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:40-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:45-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:46-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:46-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:51-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:51-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:51-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:31:56-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:31:56-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:31:57-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:32:02-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:32:02-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:32:02-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:32:07-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:32:07-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:32:07-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:32:12-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:32:12-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:32:13-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:32:18-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:32:18-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:32:18-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:32:23-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:32:23-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:32:23-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:32:28-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:32:29-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:32:29-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:32:34-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:32:34-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:32:34-testlogger-INFO: 10.166.224.81 -- extractor -- java is running
+Fri, 23 Sep 2016 00:32:56-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:32:56-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:32:56-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is running
+Fri, 23 Sep 2016 00:33:01-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:02-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:02-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is running
+Fri, 23 Sep 2016 00:33:07-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:07-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:07-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is running
+Fri, 23 Sep 2016 00:33:12-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:12-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:13-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is running
+Fri, 23 Sep 2016 00:33:18-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:18-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:18-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is running
+Fri, 23 Sep 2016 00:33:23-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:23-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:23-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is running
+Fri, 23 Sep 2016 00:33:28-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:28-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:29-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is running
+Fri, 23 Sep 2016 00:33:34-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:34-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:34-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is NOT running!!! Please check!!!
+Fri, 23 Sep 2016 00:33:39-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:39-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:39-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is NOT running!!! Please check!!!
+Fri, 23 Sep 2016 00:33:44-paramiko.transport-INFO: Connected (version 2.0, client OpenSSH_5.3)
+Fri, 23 Sep 2016 00:33:45-paramiko.transport-INFO: Authentication (publickey) successful!
+Fri, 23 Sep 2016 00:33:45-testlogger-INFO: 10.166.224.81 -- extractor -- tungsten.jar is NOT running!!! Please check!!!
