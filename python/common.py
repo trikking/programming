@@ -88,22 +88,16 @@ def parse_conf(conffile):
 
     sections = config.sections()
 
-    extractor_default['ip'] = config.get('extractor-default', 'ip')
     extractor_default['ssh_user'] = config.get('extractor-default', 'ssh_user')
     extractor_default['ssh_port'] = config.get('extractor-default', 'ssh_port')
-    extractor_default['app_dir'] = config.get('extractor-default', 'app_dir')
     extractor_default['app_pattern'] = config.get('extractor-default', 'app_pattern')
 
-    mq_default['ip'] = config.get('mq-default', 'ip')
     mq_default['ssh_user'] = config.get('mq-default', 'ssh_user')
     mq_default['ssh_port'] = config.get('mq-default', 'ssh_port')
-    mq_default['app_dir'] = config.get('mq-default', 'app_dir')
     mq_default['app_pattern'] = config.get('mq-default', 'app_pattern')
 
-    applier_default['ip'] = config.get('applier-default', 'ip')
     applier_default['ssh_user'] = config.get('applier-default', 'ssh_user')
     applier_default['ssh_port'] = config.get('applier-default', 'ssh_port')
-    applier_default['app_dir'] = config.get('applier-default', 'app_dir')
     applier_default['app_pattern'] = config.get('applier-default', 'app_pattern')
 
     for section in sections:
@@ -160,7 +154,6 @@ def monitor(monitor_type, para = {}):
         monitor_cmd = 'ps -ef | grep %s | grep -v grep' % (app_pattern)
         monitor_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_cmd, user = ssh_user)
         if monitor_type == 'extractor' or monitor_type == 'applier':
-        #if monitor_type == 'applier':
             if monitor_result['status'] == 'failure':
                 logger.error('%s -- %s -- %s is NOT running!!! Please check!!!' % (ip, monitor_type, app_pattern))
             else:

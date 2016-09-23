@@ -11,3 +11,4 @@
 2016-09-23 16:28:11,677 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar is NOT running!!! Please check!!!
 2016-09-23 16:28:16,969 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar is NOT running!!! Please check!!!
 2016-09-23 16:28:22,261 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar is NOT running!!! Please check!!!
+2016-09-23 16:35:46,623 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-12 13:08:55
