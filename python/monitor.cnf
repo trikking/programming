@@ -1,12 +1,12 @@
 [extractor]
-ip=10.166.224.81
+ip=10.166.224.81,10.166.224.83
 ssh_port=22
 ssh_user=tungsten
 app_dir=~/pnode
 app_pattern=tungsten.jar
 
 [mq]
-ip=10.166.224.82
+ip=10.166.224.84
 ssh_port=22
 ssh_user=tungsten
 app_dir=~/mq
@@ -14,7 +14,7 @@ app_port=61616
 app_pattern=activemq
 
 [applier]
-ip=10.166.224.83
+ip=10.166.224.85
 ssh_port=22
 ssh_user=tungsten
 app_dir=~/applier

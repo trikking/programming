@@ -1,4 +1,4 @@
-#!/usr/bin/env python27
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import paramiko
@@ -44,8 +44,7 @@ def ssh_outs(ip, cmd, port = global_ssh_port, user = '', password = ''):
                         username = user, 
                         password = password, 
                         timeout = global_timeout)
-        stdin, stdout, stderr = ssh.exec_command("set -o pipefail; " + cmd, 
-                                                  timeout = global_timeout)
+        stdin, stdout, stderr = ssh.exec_command("set -o pipefail; " + cmd)
         output = stdout.readlines()
         error = stderr.readlines()
         content = output + error
@@ -98,8 +97,7 @@ def parse_conf(conffile):
 
     return extractor_para, mq_para, applier_para
 
-def monitor(monitor_type, para):
-    ip = para['ip']
+def monitor(monitor_type, ip, para = {}):
     ssh_user = para['ssh_user']
     ssh_port = para['ssh_port']
     app_dir = para['app_dir']
@@ -111,7 +109,7 @@ def monitor(monitor_type, para):
         monitor_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_cmd, user = ssh_user)
         if monitor_type == 'extractor':
             if monitor_result['status'] == 'failure':
-                logger.info('%s -- %s -- %s is NOT running!!! Please check!!!' % (ip, monitor_type, app_pattern))
+                logger.error('%s -- %s -- %s is NOT running!!! Please check!!!' % (ip, monitor_type, app_pattern))
             else:
                 logger.info('%s -- %s -- %s is running' % (ip, monitor_type, app_pattern))
         time.sleep(5)
@@ -122,18 +120,17 @@ def multi_monitor():
     para = extractor_para
     for ip in extractor_para['ip']:
         para['ip'] = ip
-        t = multiprocessing.Process(target = monitor, args = ('extractor', para,))
-    #para = mq_para
-    #for ip in mq_para['ip']:
-    #    para['ip'] = ip
-    #    t = multiprocessing.Process(target = monitor, args = ('mq', para,))
-    #para = applier_para
-    #for ip in applier_para['ip']:
-    #    para['ip'] = ip
-    #    t = multiprocessing.Process(target = monitor, args = ('applier', para,))
-    threads.append(t)
-    for t in threads:
+        t = multiprocessing.Process(target = monitor, args = ('extractor', ip, para,))
         t.daemon = True
+        threads.append(t)
+    para = mq_para
+    for ip in mq_para['ip']:
+        para['ip'] = ip
+        t = multiprocessing.Process(target = monitor, args = ('mq', ip, para,))
+    para = applier_para
+    for ip in applier_para['ip']:
+        para['ip'] = ip
+        t = multiprocessing.Process(target = monitor, args = ('applier', ip, para,))
     for t in threads:
         t.start()
     for t in threads:
