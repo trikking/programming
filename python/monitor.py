@@ -9,22 +9,21 @@ import traceback
 from common import *
 
 def multi_monitor():
-    (extractor_para, mq_para, applier_para) = parse_conf(conffile)
+    (extractor_para_list, mq_para_list, applier_para_list) = parse_conf(conffile)
     threads = []
-    para = extractor_para
-    for ip in extractor_para['ip']:
-        para['ip'] = ip
-        t = multiprocessing.Process(target = monitor, args = ('extractor', ip, para,))
+    for extractor_para in extractor_para_list:
+        t = multiprocessing.Process(target = monitor, args = ('extractor', extractor_para,))
         t.daemon = True
         threads.append(t)
-    para = mq_para
-    for ip in mq_para['ip']:
-        para['ip'] = ip
-        t = multiprocessing.Process(target = monitor, args = ('mq', ip, para,))
-    para = applier_para
-    for ip in applier_para['ip']:
-        para['ip'] = ip
-        t = multiprocessing.Process(target = monitor, args = ('applier', ip, para,))
+    #for mq_para in mq_para_list:
+    #    para['ip'] = ip
+    #    t = multiprocessing.Process(target = monitor, args = ('mq', mq_para,))
+    #    t.daemon = True
+    #    threads.append(t)
+    for applier_para in applier_para_list:
+        t = multiprocessing.Process(target = monitor, args = ('applier', applier_para,))
+        t.daemon = True
+        threads.append(t)
     for t in threads:
         t.start()
     for t in threads:

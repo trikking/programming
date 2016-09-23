@@ -79,33 +79,75 @@ def parse_conf(conffile):
     config.read(conffile)
 
     ### parse extractor parameters
-    extractor_para = {}
-    extractor_para['ip'] = config.get('extractor', 'ip').split(',')
-    extractor_para['ssh_user'] = config.get('extractor', 'ssh_user')
-    extractor_para['ssh_port'] = config.get('extractor', 'ssh_port')
-    extractor_para['app_dir'] = config.get('extractor', 'app_dir')
-    extractor_para['app_pattern'] = config.get('extractor', 'app_pattern')
+    extractor_default = {}
+    extractor_para_list = []
+    mq_default = {}
+    mq_para_list = []
+    applier_default = {}
+    applier_para_list = []
 
-    ### parse mq parameters
-    mq_para = {}
-    mq_para['ip'] = config.get('mq', 'ip').split(',')
-    mq_para['ssh_user'] = config.get('mq', 'ssh_user')
-    mq_para['ssh_port'] = config.get('mq', 'ssh_port')
-    mq_para['app_dir'] = config.get('mq', 'app_dir')
-    mq_para['app_port'] = config.get('mq', 'app_port')
-    mq_para['app_pattern'] = config.get('mq', 'app_pattern')
+    sections = config.sections()
 
-    ### parse applier parameters
-    applier_para = {}
-    applier_para['ip'] = config.get('applier', 'ip').split(',')
-    applier_para['ssh_user'] = config.get('applier', 'ssh_user')
-    applier_para['ssh_port'] = config.get('applier', 'ssh_port')
-    applier_para['app_dir'] = config.get('applier', 'app_dir')
-    applier_para['app_pattern'] = config.get('applier', 'app_pattern')
+    extractor_default['ip'] = config.get('extractor-default', 'ip')
+    extractor_default['ssh_user'] = config.get('extractor-default', 'ssh_user')
+    extractor_default['ssh_port'] = config.get('extractor-default', 'ssh_port')
+    extractor_default['app_dir'] = config.get('extractor-default', 'app_dir')
+    extractor_default['app_pattern'] = config.get('extractor-default', 'app_pattern')
 
-    return extractor_para, mq_para, applier_para
+    mq_default['ip'] = config.get('mq-default', 'ip')
+    mq_default['ssh_user'] = config.get('mq-default', 'ssh_user')
+    mq_default['ssh_port'] = config.get('mq-default', 'ssh_port')
+    mq_default['app_dir'] = config.get('mq-default', 'app_dir')
+    mq_default['app_pattern'] = config.get('mq-default', 'app_pattern')
 
-def monitor(monitor_type, ip, para = {}):
+    applier_default['ip'] = config.get('applier-default', 'ip')
+    applier_default['ssh_user'] = config.get('applier-default', 'ssh_user')
+    applier_default['ssh_port'] = config.get('applier-default', 'ssh_port')
+    applier_default['app_dir'] = config.get('applier-default', 'app_dir')
+    applier_default['app_pattern'] = config.get('applier-default', 'app_pattern')
+
+    for section in sections:
+        
+        extractor = {}
+        if 'extractor-' in section and section != 'extractor-default':
+            extractor['ip'] = config.get(section, 'ip')
+            #extractor['ssh_user'] = config.get(section, 'ssh_user')
+            #extractor['ssh_port'] = config.get(section, 'ssh_port')
+            extractor['app_dir'] = config.get(section, 'app_dir')
+            #extractor['app_pattern'] = config.get(section, 'app_pattern')
+            extractor['ssh_user'] = extractor_default['ssh_user']
+            extractor['ssh_port'] = extractor_default['ssh_port']
+            extractor['app_pattern'] = extractor_default['app_pattern']
+            extractor_para_list.append(extractor)
+
+        mq = {}
+        if 'mq-' in section and section != 'mq-default':
+            mq['ip'] = config.get(section, 'ip')
+            #mq['ssh_user'] = config.get(section, 'ssh_user')
+            #mq['ssh_port'] = config.get(section, 'ssh_port')
+            mq['app_dir'] = config.get(section, 'app_dir')
+            #mq['app_pattern'] = config.get(section, 'app_pattern')
+            mq['ssh_user'] = mq_default['ssh_user']
+            mq['ssh_port'] = mq_default['ssh_port']
+            mq['app_pattern'] = mq_default['app_pattern']
+            mq_para_list.append(mq)
+
+        applier = {}
+        if 'applier-' in section and section != 'applier-default':
+            applier['ip'] = config.get(section, 'ip')
+            #applier['ssh_user'] = config.get(section, 'ssh_user')
+            #applier['ssh_port'] = config.get(section, 'ssh_port')
+            applier['app_dir'] = config.get(section, 'app_dir')
+            #applier['app_pattern'] = config.get(section, 'app_pattern')
+            applier['ssh_user'] = applier_default['ssh_user']
+            applier['ssh_port'] = applier_default['ssh_port']
+            applier['app_pattern'] = applier_default['app_pattern']
+            applier_para_list.append(applier)
+
+    return extractor_para_list, mq_para_list, applier_para_list
+
+def monitor(monitor_type, para = {}):
+    ip = para['ip']
     ssh_user = para['ssh_user']
     ssh_port = para['ssh_port']
     app_dir = para['app_dir']
@@ -113,11 +155,12 @@ def monitor(monitor_type, ip, para = {}):
     if monitor_type == 'mq':
         app_port = para['app_port']
     date = datetime.datetime.now()
-    priv_error_log_date = date - datetime.timedelta(days=1)
+    priv_error_log_date = date - datetime.timedelta(days=10)
     while True:
         monitor_cmd = 'ps -ef | grep %s | grep -v grep' % (app_pattern)
         monitor_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_cmd, user = ssh_user)
-        if monitor_type == 'extractor':
+        if monitor_type == 'extractor' or monitor_type == 'applier':
+        #if monitor_type == 'applier':
             if monitor_result['status'] == 'failure':
                 logger.error('%s -- %s -- %s is NOT running!!! Please check!!!' % (ip, monitor_type, app_pattern))
             else:
@@ -125,15 +168,14 @@ def monitor(monitor_type, ip, para = {}):
                 monitor_log_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_log_cmd, user = ssh_user)
                 if monitor_log_result['status'] == 'failure':
                     logger.critical('%s -- %s -- %s is running, monitor error!!!' % (ip, monitor_type, app_pattern))
-                    print monitor_log_result
+                    logger.critical(monitor_log_result['message'])
                 else:
                     error_log_date_str = monitor_log_result["data"].strip()
                     error_log_date = datetime.datetime.strptime(error_log_date_str, "%Y-%m-%d %H:%M:%S")
                     if priv_error_log_date >= error_log_date:
                         logger.info('%s -- %s -- %s is running, app log is OK!' % (ip, monitor_type, app_pattern))
                     else:
-                        print priv_error_log_date - error_log_date
                         logger.error('%s -- %s -- %s new error log found since %s' % 
                                  (ip, monitor_type, app_pattern, priv_error_log_date.strftime("%Y-%m-%d %H:%M:%S")))
                     priv_error_log_date = error_log_date
-                    time.sleep(5)
+        time.sleep(5)
