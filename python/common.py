@@ -6,21 +6,29 @@ import traceback
 import ConfigParser
 import logging
 import multiprocessing
-import time
+import time,datetime
 
 global_ssh_port = 22
 global_timeout = 20
 
 conffile='monitor.cnf'
 
-logger = logging.getLogger('testlogger')
+logger = logging.getLogger('dataflume-monitor-logger')
+logger.setLevel(logging.INFO)
 
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s-%(name)s-%(levelname)s: %(message)s',
-                    datefmt='%a, %d %b %Y %H:%M:%S',
-                    filename='test.log',
-                    filemode='a')
+service_fh = logging.FileHandler('service.log')
+service_fh.setLevel(logging.INFO)
 
+error_fh = logging.FileHandler('error.log')
+error_fh.setLevel(logging.ERROR)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+service_fh.setFormatter(formatter)
+error_fh.setFormatter(formatter)
+
+logger.addHandler(service_fh)
+logger.addHandler(error_fh)
 
 def ssh_outs(ip, cmd, port = global_ssh_port, user = '', password = ''):
 
@@ -104,6 +112,8 @@ def monitor(monitor_type, ip, para = {}):
     app_pattern = para['app_pattern']
     if monitor_type == 'mq':
         app_port = para['app_port']
+    date = datetime.datetime.now()
+    priv_error_log_date = date - datetime.timedelta(days=1)
     while True:
         monitor_cmd = 'ps -ef | grep %s | grep -v grep' % (app_pattern)
         monitor_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_cmd, user = ssh_user)
@@ -111,27 +121,19 @@ def monitor(monitor_type, ip, para = {}):
             if monitor_result['status'] == 'failure':
                 logger.error('%s -- %s -- %s is NOT running!!! Please check!!!' % (ip, monitor_type, app_pattern))
             else:
-                logger.info('%s -- %s -- %s is running' % (ip, monitor_type, app_pattern))
-        time.sleep(5)
-
-def multi_monitor():
-    (extractor_para, mq_para, applier_para) = parse_conf(conffile)
-    threads = []
-    para = extractor_para
-    for ip in extractor_para['ip']:
-        para['ip'] = ip
-        t = multiprocessing.Process(target = monitor, args = ('extractor', ip, para,))
-        t.daemon = True
-        threads.append(t)
-    para = mq_para
-    for ip in mq_para['ip']:
-        para['ip'] = ip
-        t = multiprocessing.Process(target = monitor, args = ('mq', ip, para,))
-    para = applier_para
-    for ip in applier_para['ip']:
-        para['ip'] = ip
-        t = multiprocessing.Process(target = monitor, args = ('applier', ip, para,))
-    for t in threads:
-        t.start()
-    for t in threads:
-        t.join()
+                monitor_log_cmd = """ ls --full-time %s/log/error.log | awk '{print $6 " " $7}' | sed 's/\..*$//g' """ % (app_dir)
+                monitor_log_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_log_cmd, user = ssh_user)
+                if monitor_log_result['status'] == 'failure':
+                    logger.critical('%s -- %s -- %s is running, monitor error!!!' % (ip, monitor_type, app_pattern))
+                    print monitor_log_result
+                else:
+                    error_log_date_str = monitor_log_result["data"].strip()
+                    error_log_date = datetime.datetime.strptime(error_log_date_str, "%Y-%m-%d %H:%M:%S")
+                    if priv_error_log_date >= error_log_date:
+                        logger.info('%s -- %s -- %s is running, app log is OK!' % (ip, monitor_type, app_pattern))
+                    else:
+                        print priv_error_log_date - error_log_date
+                        logger.error('%s -- %s -- %s new error log found since %s' % 
+                                 (ip, monitor_type, app_pattern, priv_error_log_date.strftime("%Y-%m-%d %H:%M:%S")))
+                    priv_error_log_date = error_log_date
+                    time.sleep(5)

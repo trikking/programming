@@ -1,8 +1,8 @@
 [extractor]
-ip=10.166.224.81,10.166.224.83
+ip=10.166.224.81
 ssh_port=22
 ssh_user=tungsten
-app_dir=~/pnode
+app_dir=syncapp-pnode
 app_pattern=tungsten.jar
 
 [mq]
