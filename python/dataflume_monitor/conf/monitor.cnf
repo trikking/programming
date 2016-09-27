@@ -1,3 +1,14 @@
+[mq-default]
+admin_user=admin
+admin_passwd=adminpass
+admin_web_port=8161
+
+[mq-1]
+ip=10.166.224.81
+admin_user=admin
+admin_passwd=adminpass
+admin_web_port=8161
+
 [extractor-default]
 ssh_port=22
 ssh_user=tungsten
