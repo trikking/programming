@@ -3,7 +3,7 @@
 
 import multiprocessing,threading
 import paramiko
-import logging
+import logging, logging.handlers
 import getopt
 import traceback
 import ConfigParser
@@ -15,22 +15,46 @@ from common import *
 
 conffile='conf/monitor.cnf'
 
-logger = logging.getLogger('dataflume-monitor-logger')
-logger.setLevel(logging.INFO)
+dataflume_logger = logging.getLogger('dataflume-monitor-logger')
+dataflume_logger.setLevel(logging.INFO)
 
-service_fh = logging.FileHandler('log/service.log')
-service_fh.setLevel(logging.INFO)
+mq_logger = logging.getLogger('mq-monitor-logger')
+mq_logger.setLevel(logging.INFO)
 
-error_fh = logging.FileHandler('log/error.log')
-error_fh.setLevel(logging.ERROR)
+dataflume_service_log = 'log/dataflume-service.log'
+dataflume_service_fh = logging.FileHandler(dataflume_service_log)
+#dataflume_service_fh = logging.handlers.TimedRotatingFileHandler(dataflume_service_log, when='D', interval=1, backupCount=10)
+dataflume_service_fh = logging.handlers.RotatingFileHandler(dataflume_service_log, maxBytes = 50 * 1024 * 1024, backupCount=10)
+dataflume_service_fh.setLevel(logging.INFO)
+
+dataflume_error_log = 'log/dataflume-error.log'
+dataflume_error_fh = logging.FileHandler(dataflume_error_log)
+dataflume_error_fh = logging.handlers.RotatingFileHandler(dataflume_error_log, maxBytes = 50 * 1024 * 1024, backupCount=10)
+dataflume_error_fh.setLevel(logging.ERROR)
+
+mq_service_log = 'log/mq-service.log'
+mq_service_fh = logging.FileHandler(mq_service_log)
+mq_service_fh = logging.handlers.RotatingFileHandler(mq_service_log, maxBytes = 50 * 1024 * 1024, backupCount=10)
+mq_service_fh.setLevel(logging.INFO)
+
+mq_error_log = 'log/mq-error.log'
+mq_error_fh = logging.FileHandler(mq_error_log)
+mq_error_fh = logging.handlers.RotatingFileHandler(mq_error_log, maxBytes = 50 * 1024 * 1024, backupCount=10)
+mq_error_fh.setLevel(logging.ERROR)
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-service_fh.setFormatter(formatter)
-error_fh.setFormatter(formatter)
+dataflume_service_fh.setFormatter(formatter)
+dataflume_error_fh.setFormatter(formatter)
 
-logger.addHandler(service_fh)
-logger.addHandler(error_fh)
+dataflume_logger.addHandler(dataflume_service_fh)
+dataflume_logger.addHandler(dataflume_error_fh)
+
+mq_service_fh.setFormatter(formatter)
+mq_error_fh.setFormatter(formatter)
+
+mq_logger.addHandler(mq_service_fh)
+mq_logger.addHandler(mq_error_fh)
 
 def parse_conf(conffile):
     config = ConfigParser.ConfigParser()
@@ -118,7 +142,7 @@ def monitor(monitor_type, para = {}):
             xml_resContent = response.read()
             queues_json = xmltodict.parse(xml_resContent)
             for queue in queues_json["queues"]["queue"]:
-                logger.info("queue名称:", queue["@name"], "剩余未消费数量:", queue["stats"]["@size"])
+                mq_logger.info("queue名称:" + queue["@name"] + "剩余未消费数量:" + queue["stats"]["@size"])
 
         if monitor_type == 'extractor' or monitor_type == 'applier':
             ip = para['ip']
@@ -129,20 +153,20 @@ def monitor(monitor_type, para = {}):
             monitor_cmd = 'ps -ef | grep %s | grep -v grep' % (app_pattern)
             monitor_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_cmd, user = ssh_user)
             if monitor_result['status'] == 'failure':
-                logger.error('%s -- %s -- %s is NOT running!!! Please check!!!' % (ip, monitor_type, app_pattern))
+                dataflume_logger.error('%s -- %s -- %s is NOT running!!! Please check!!!' % (ip, monitor_type, app_pattern))
             else:
                 monitor_log_cmd = """ ls --full-time %s/log/error.log | awk '{print $6 " " $7}' | sed 's/\..*$//g' """ % (app_dir)
                 monitor_log_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_log_cmd, user = ssh_user)
                 if monitor_log_result['status'] == 'failure':
-                    logger.critical('%s -- %s -- %s is running, monitor error!!!' % (ip, monitor_type, app_pattern))
-                    logger.critical(monitor_log_result['message'])
+                    dataflume_logger.critical('%s -- %s -- %s is running, monitor error!!!' % (ip, monitor_type, app_pattern))
+                    dataflume_logger.critical(monitor_log_result['message'])
                 else:
                     error_log_date_str = monitor_log_result["data"].strip()
                     error_log_date = datetime.datetime.strptime(error_log_date_str, "%Y-%m-%d %H:%M:%S")
                     if priv_error_log_date >= error_log_date:
-                        logger.info('%s -- %s -- %s is running, app log is OK!' % (ip, monitor_type, app_pattern))
+                        dataflume_logger.info('%s -- %s -- %s is running, app log is OK!' % (ip, monitor_type, app_pattern))
                     else:
-                        logger.error('%s -- %s -- %s new error log found since %s' % 
+                        dataflume_logger.error('%s -- %s -- %s new error log found since %s' % 
                                  (ip, monitor_type, app_pattern, priv_error_log_date.strftime("%Y-%m-%d %H:%M:%S")))
                     priv_error_log_date = error_log_date
 
@@ -152,15 +176,15 @@ def multi_monitor():
     (mq_para_list, extractor_para_list, applier_para_list) = parse_conf(conffile)
     threads = []
     for mq_para in mq_para_list:
-        t = threading.Thread(target = monitor, args = ('mq', mq_para,))
+        t = multiprocessing.Process(target = monitor, args = ('mq', mq_para,))
         t.daemon = True
         threads.append(t)
     for extractor_para in extractor_para_list:
-        t = threading.Thread(target = monitor, args = ('extractor', extractor_para,))
+        t = multiprocessing.Process(target = monitor, args = ('extractor', extractor_para,))
         t.daemon = True
         threads.append(t)
     for applier_para in applier_para_list:
-        t = threading.Thread(target = monitor, args = ('applier', applier_para,))
+        t = multiprocessing.Process(target = monitor, args = ('applier', applier_para,))
         t.daemon = True
         threads.append(t)
     for t in threads:
