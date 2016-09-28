@@ -11,3 +11,53 @@
 2016-09-28 14:05:30,259 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:05:29
 2016-09-28 14:06:11,929 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:06:11
 2016-09-28 14:06:42,450 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:06:41
+2016-09-28 14:40:15,076 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:40:14
+2016-09-28 14:40:31,828 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:37,243 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:42,522 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:47,803 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:53,082 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:58,365 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:41:03,643 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:41:08,925 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:41:14,205 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:41:19,487 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:42:42,019 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:42:41
+2016-09-28 14:43:04,169 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:43:09,571 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:43:14,847 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:43:36,867 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+Traceback (most recent call last):
+  File "/home/scott/git/programming/python/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 367, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 584, in _auth
+    raise saved_exception
+BadAuthenticationType: ('Bad authentication type', [u'publickey', u'gssapi-keyex', u'gssapi-with-mic']) (allowed_types=[u'publickey', u'gssapi-keyex', u'gssapi-with-mic'])
+
+2016-09-28 14:43:42,241 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+Traceback (most recent call last):
+  File "/home/scott/git/programming/python/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 367, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 584, in _auth
+    raise saved_exception
+BadAuthenticationType: ('Bad authentication type', [u'publickey', u'gssapi-keyex', u'gssapi-with-mic']) (allowed_types=[u'publickey', u'gssapi-keyex', u'gssapi-with-mic'])
+
+2016-09-28 14:50:30,328 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:50:29
+2016-09-28 14:52:06,493 - dataflume-monitor-logger - ERROR - extractor tungsten.jar on 10.166.224.81 new error log found since 2016-09-18 14:52:05

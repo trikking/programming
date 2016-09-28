@@ -14,3 +14,4 @@ if __name__ == '__main__':
     except:
         trace_info = traceback.format_exc()
         print trace_info
+        # send SMS

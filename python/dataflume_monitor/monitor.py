@@ -161,21 +161,30 @@ def monitor(monitor_type, para = {}):
             monitor_cmd = 'ps -ef | grep %s | grep -v grep' % (app_pattern)
             monitor_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_cmd, user = ssh_user)
             if monitor_result['status'] == 'failure':
-                dataflume_logger.error('%s -- %s -- %s is NOT running!!! Please check!!!' % (ip, monitor_type, app_pattern))
+                if monitor_result['message']:
+                    error_info = '%s %s on %s monitor error, ssh cmd ps failed !!!' % (monitor_type, app_pattern, ip)
+                else:
+                    error_info = "%s %s on %s is NOT running!!!" % (monitor_type, app_pattern, ip)
+                dataflume_logger.critical(error_info + '\n' + monitor_result["message"])
+                # send SMS error_info
+                    
             else:
                 monitor_log_cmd = """ ls --full-time %s/log/error.log | awk '{print $6 " " $7}' | sed 's/\..*$//g' """ % (app_dir)
                 monitor_log_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_log_cmd, user = ssh_user)
                 if monitor_log_result['status'] == 'failure':
-                    dataflume_logger.critical('%s -- %s -- %s is running, monitor error!!!' % (ip, monitor_type, app_pattern))
-                    dataflume_logger.critical(monitor_log_result['message'])
+                    error_log = '%s %s on %s monitor error, ssh cmd ls failed!!!' % (monitor_type, app_pattern, ip)
+                    dataflume_logger.critical(error_info + '\n' + monitor_result["message"])
+                    # send SMS error_info
                 else:
                     error_log_date_str = monitor_log_result["data"].strip()
                     error_log_date = datetime.datetime.strptime(error_log_date_str, "%Y-%m-%d %H:%M:%S")
                     if priv_error_log_date >= error_log_date:
-                        dataflume_logger.info('%s -- %s -- %s is running, app log is OK!' % (ip, monitor_type, app_pattern))
+                        dataflume_logger.info('%s %s on %s is running, app log is OK!' % (monitor_type, app_pattern, ip))
                     else:
-                        dataflume_logger.error('%s -- %s -- %s new error log found since %s' % 
-                                 (ip, monitor_type, app_pattern, priv_error_log_date.strftime("%Y-%m-%d %H:%M:%S")))
+                        error_log = '%s %s on %s new error log found since %s' % \
+                                     (monitor_type, app_pattern, ip, priv_error_log_date.strftime("%Y-%m-%d %H:%M:%S"))
+                        dataflume_logger.error(error_log)
+                        # send SMS error_info
                     priv_error_log_date = error_log_date
 
             time.sleep(5)

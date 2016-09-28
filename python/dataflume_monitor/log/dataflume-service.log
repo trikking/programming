@@ -2410,3 +2410,218 @@
 2016-09-28 14:08:46,455 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
 2016-09-28 14:08:51,209 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
 2016-09-28 14:08:51,798 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:15,000 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:15,076 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:40:14
+2016-09-28 14:40:15,127 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:20,568 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:20,679 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:20,794 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:26,256 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:26,379 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:26,394 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:31,828 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:31,972 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:31,975 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:37,243 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:37,530 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:37,531 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:42,522 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:43,073 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:43,076 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:47,803 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:48,623 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:48,709 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:53,082 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:54,262 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:40:54,315 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:40:58,365 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:40:59,814 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:00,006 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:03,643 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:41:05,342 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:05,648 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:08,925 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:41:11,000 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:11,192 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:14,205 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:41:16,736 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:16,773 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:19,487 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:41:22,359 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:22,393 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:25,229 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:28,012 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:28,017 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:30,777 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:33,547 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:33,549 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:36,336 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:39,145 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:39,146 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:41,889 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:44,718 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:44,723 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:47,436 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:50,245 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:50,250 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:52,983 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:55,810 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:41:55,816 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:41:58,525 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:42:41,925 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:42:41,968 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:42:42,019 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:42:41
+2016-09-28 14:42:47,531 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:42:47,631 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:42:47,634 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:42:53,095 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:42:53,228 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:42:53,319 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:42:58,663 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:42:58,824 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:42:58,996 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:04,169 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:43:04,330 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:43:04,649 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:09,571 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:43:09,910 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:43:10,224 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:14,847 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+
+2016-09-28 14:43:15,457 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:43:15,767 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:20,393 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:21,096 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:43:21,304 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:25,940 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:26,649 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:43:26,873 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:31,490 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:32,192 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:43:32,407 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:36,867 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+Traceback (most recent call last):
+  File "/home/scott/git/programming/python/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 367, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 584, in _auth
+    raise saved_exception
+BadAuthenticationType: ('Bad authentication type', [u'publickey', u'gssapi-keyex', u'gssapi-with-mic']) (allowed_types=[u'publickey', u'gssapi-keyex', u'gssapi-with-mic'])
+
+2016-09-28 14:43:37,859 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:43:37,963 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:42,241 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed, please check dataflume error log!!!
+Traceback (most recent call last):
+  File "/home/scott/git/programming/python/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 367, in connect
+    look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 584, in _auth
+    raise saved_exception
+BadAuthenticationType: ('Bad authentication type', [u'publickey', u'gssapi-keyex', u'gssapi-with-mic']) (allowed_types=[u'publickey', u'gssapi-keyex', u'gssapi-with-mic'])
+
+2016-09-28 14:43:43,502 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:43,509 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:43:47,794 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:49,049 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:43:49,052 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:50:30,304 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:50:30,328 - dataflume-monitor-logger - ERROR - 10.166.224.81 -- extractor -- tungsten.jar new error log found since 2016-09-18 14:50:29
+2016-09-28 14:50:30,363 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:50:35,875 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:50:35,927 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:50:36,068 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:50:41,531 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:50:41,551 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:50:41,618 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:50:47,213 - dataflume-monitor-logger - INFO - 10.166.224.83 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:50:47,234 - dataflume-monitor-logger - INFO - 10.166.224.83 -- applier -- java is running, app log is OK!
+2016-09-28 14:50:47,288 - dataflume-monitor-logger - INFO - 10.166.224.81 -- extractor -- tungsten.jar is running, app log is OK!
+2016-09-28 14:52:06,362 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:06,493 - dataflume-monitor-logger - ERROR - extractor tungsten.jar on 10.166.224.81 new error log found since 2016-09-18 14:52:05
+2016-09-28 14:52:06,508 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:11,930 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:12,222 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:12,226 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:52:17,503 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:17,840 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:52:17,861 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:23,050 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:23,430 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:23,433 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:52:28,582 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:29,012 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:52:29,086 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:34,238 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:34,629 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:52:34,786 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:39,893 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:40,212 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:52:40,351 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:45,436 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:45,902 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:45,904 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:52:51,084 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:51,527 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:52:51,628 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:56,754 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:57,188 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:52:57,240 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:02,440 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:02,849 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:02,873 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:07,973 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:08,432 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:08,440 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:13,512 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:14,072 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:14,117 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:19,040 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:19,736 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:19,803 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:24,566 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:25,269 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:25,358 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:30,088 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:30,923 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:30,932 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:35,615 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:36,506 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:36,509 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:41,141 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:42,058 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:42,076 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:46,666 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:47,635 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:47,659 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:52,192 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:53,204 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:53,354 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:53:57,718 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:58,850 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:53:59,006 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:54:03,224 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:54:04,501 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:54:04,567 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:54:08,754 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:54:10,139 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:54:10,168 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:54:14,288 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:54:15,822 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:54:15,828 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:54:19,817 - dataflume-monitor-logger - INFO - applier java on 10.166.224.83 is running, app log is OK!
+2016-09-28 14:54:21,391 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.81 is running, app log is OK!
+2016-09-28 14:54:21,481 - dataflume-monitor-logger - INFO - extractor tungsten.jar on 10.166.224.83 is running, app log is OK!
