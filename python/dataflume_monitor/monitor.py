@@ -34,7 +34,7 @@ dataflume_error_fh.setLevel(logging.ERROR)
 
 mq_service_log = 'log/mq-service.log'
 mq_service_fh = logging.FileHandler(mq_service_log)
-mq_service_fh = logging.handlers.RotatingFileHandler(mq_service_log, maxBytes = 50 * 1024 * 1024, backupCount=10)
+mq_service_fh = logging.handlers.RotatingFileHandler(mq_service_log, maxBytes = 1024 * 1024, backupCount=5)
 mq_service_fh.setLevel(logging.INFO)
 
 mq_error_log = 'log/mq-error.log'
@@ -123,6 +123,7 @@ def monitor(monitor_type, para = {}):
     priv_error_log_date = date - datetime.timedelta(days = 10)
     while True:
         if monitor_type == 'mq':
+            mq_monitor_date = datetime.datetime.now()
             ip = para['ip']
             admin_user = para['admin_user']
             admin_passwd = para['admin_passwd']
@@ -130,7 +131,7 @@ def monitor(monitor_type, para = {}):
             #active_mq_http_baseurl = 'http://%s:%s/api/jolokia' % (ip, admin_web_port)
 
             #surl = '%s/read/org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Queue,destinationName=t_tfr_unload_diffcheck_report/QueueSize' % (active_mq_http_baseurl)
-            #check_status_url = '%s/read/org.apache.activemq:type=Broker,brokerName=localhost,service=Health/CurrentStatus' % (active_mq_http_baseurl)
+            #check_health_url = '%s/read/org.apache.activemq:type=Broker,brokerName=localhost,service=Health/CurrentStatus' % (active_mq_http_baseurl)
             queue_view_url = 'http://%s:%s/admin/xml/queues.jsp' % (ip, admin_web_port)
 
             passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
@@ -141,8 +142,15 @@ def monitor(monitor_type, para = {}):
             response = urllib2.urlopen(queue_view_url)
             xml_resContent = response.read()
             queues_json = xmltodict.parse(xml_resContent)
+            mq_logger.info(mq_monitor_date.strftime("%Y-%m-%d %H:%M:%S") + '的MQ队列情况如下(表名,消息数量,消费者数量,进队数量,出队数量):')
             for queue in queues_json["queues"]["queue"]:
-                mq_logger.info("queue名称:" + queue["@name"] + "剩余未消费数量:" + queue["stats"]["@size"])
+                mq_logger.info("%s,%s,%s,%s,%s" % (queue["@name"], 
+                                                   queue["stats"]["@size"], 
+                                                   queue["stats"]["@consumerCount"], 
+                                                   queue["stats"]["@enqueueCount"], 
+                                                   queue["stats"]["@dequeueCount"]))
+            mq_logger.info('\n' * 3)
+            time.sleep(60)
 
         if monitor_type == 'extractor' or monitor_type == 'applier':
             ip = para['ip']
@@ -170,7 +178,7 @@ def monitor(monitor_type, para = {}):
                                  (ip, monitor_type, app_pattern, priv_error_log_date.strftime("%Y-%m-%d %H:%M:%S")))
                     priv_error_log_date = error_log_date
 
-        time.sleep(5)
+            time.sleep(5)
 
 def multi_monitor():
     (mq_para_list, extractor_para_list, applier_para_list) = parse_conf(conffile)
