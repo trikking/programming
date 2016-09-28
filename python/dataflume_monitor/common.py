@@ -5,7 +5,7 @@ import paramiko
 import traceback
 from xml.etree import cElementTree as ElementTree
 
-global_ssh_port = 22
+global_ssh_port = 14816
 global_timeout = 20
 
 def ssh_outs(ip, cmd, port = global_ssh_port, user = '', password = ''):
