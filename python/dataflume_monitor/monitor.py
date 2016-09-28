@@ -121,8 +121,10 @@ def parse_conf(conffile):
 def monitor(monitor_type, para = {}):
     date = datetime.datetime.now()
     priv_error_log_date = date - datetime.timedelta(days = 10)
+    is_loop = 0
     while True:
         if monitor_type == 'mq':
+            sleep_time = 60
             mq_monitor_date = datetime.datetime.now()
             ip = para['ip']
             admin_user = para['admin_user']
@@ -142,15 +144,43 @@ def monitor(monitor_type, para = {}):
             response = urllib2.urlopen(queue_view_url)
             xml_resContent = response.read()
             queues_json = xmltodict.parse(xml_resContent)
-            mq_logger.info(mq_monitor_date.strftime("%Y-%m-%d %H:%M:%S") + '的MQ队列情况如下(表名,消息数量,消费者数量,进队数量,出队数量):')
+            mq_logger.info(mq_monitor_date.strftime("%Y-%m-%d %H:%M:%S") + '的MQ队列情况如下(表名,消息数量(大概多久同步完(s)),消费者数量,进队数量,出队数量):')
             for queue in queues_json["queues"]["queue"]:
-                mq_logger.info("%s,%s,%s,%s,%s" % (queue["@name"], 
+                if is_loop == 0:
+                    priv_size = queue["stats"]["@size"]
+                    priv_consumerCount = queue["stats"]["@consumerCount"]
+                    priv_enqueueCount = queue["stats"]["@enqueueCount"]
+                    priv_dequeueCount = queue["stats"]["@dequeueCount"]
+                    delay = '监控刚启动，未计算所需同步时间'
+                else:
+                    this_size = queue["stats"]["@size"]
+                    this_consumerCount = queue["stats"]["@consumerCount"]
+                    this_enqueueCount = queue["stats"]["@enqueueCount"]
+                    this_dequeueCount = queue["stats"]["@dequeueCount"]
+                    if int(this_dequeueCount) - int(priv_dequeueCount) != 0:
+                        delay = str(1.0 * sleep_time * int(this_size) / (int(this_dequeueCount) - int(priv_dequeueCount))) + 's'
+                    else:
+                        delay = str(sleep_time) + 's内消费数量为0，消费异常，暂时无法计算'
+                if queue["stats"]["@size"] == '0':
+                    delay = '无延迟'
+
+                mq_logger.info("%s,%s(所需同步时间:%s),%s,%s,%s" % (queue["@name"], 
                                                    queue["stats"]["@size"], 
+                                                   delay,
                                                    queue["stats"]["@consumerCount"], 
                                                    queue["stats"]["@enqueueCount"], 
                                                    queue["stats"]["@dequeueCount"]))
+                if int(queue["stats"]["@consumerCount"]) == 0:
+                    error_log = 'Number of consumer(s) on queue %s(MQ IP:%s port:%s) is 0, please check!!!' % (queue["@name"], ip, admin_web_port)
+                    mq_logger.error(error_log)
+                if is_loop == 1:
+                    priv_size = this_size
+                    priv_consumerCount = this_consumerCount
+                    priv_enqueueCount = this_enqueueCount
+                    priv_dequeueCount = this_dequeueCount
             mq_logger.info('\n' * 3)
-            time.sleep(60)
+            time.sleep(sleep_time)
+            is_loop = 1
 
         if monitor_type == 'extractor' or monitor_type == 'applier':
             ip = para['ip']
