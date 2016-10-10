@@ -1,0 +1,27 @@
+2016-09-28 18:14:14,322 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.35 new error log found since 2016-09-18 18:14:12
+2016-09-28 18:14:14,326 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.36 new error log found since 2016-09-18 18:14:12
+2016-09-28 18:14:14,359 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.34 new error log found since 2016-09-18 18:14:12
+2016-09-28 19:04:22,499 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.36 new error log found since 2016-09-18 19:04:21
+2016-09-28 19:04:22,528 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.35 new error log found since 2016-09-18 19:04:21
+2016-09-28 19:04:22,540 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.34 new error log found since 2016-09-18 19:04:21
+2016-09-28 19:14:37,282 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:15:38,089 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:16:38,897 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:17:39,739 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:18:40,569 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:19:41,390 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:20:42,211 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:21:43,031 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:22:43,839 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 is NOT running!!!
+
+2016-09-28 19:35:52,094 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.36 new error log found since 2016-09-18 19:35:50
+2016-09-28 19:35:52,124 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.34 new error log found since 2016-09-18 19:35:50
+2016-09-28 19:35:52,181 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.35 new error log found since 2016-09-18 19:35:50

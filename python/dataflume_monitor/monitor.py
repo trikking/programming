@@ -40,7 +40,7 @@ mq_service_fh.setLevel(logging.INFO)
 mq_error_log = 'log/mq-error.log'
 mq_error_fh = logging.FileHandler(mq_error_log)
 mq_error_fh = logging.handlers.RotatingFileHandler(mq_error_log, maxBytes = 50 * 1024 * 1024, backupCount=10)
-mq_error_fh.setLevel(logging.ERROR)
+mq_error_fh.setLevel(logging.WARNING)
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -169,8 +169,8 @@ def monitor(monitor_type, para = {}):
                             delay_seconds = float("%.2f" % delay_seconds)
                             delay = str(delay_seconds) + 's'
                             if delay_seconds > 900:
-                                error_log = '%s 表预估延迟有可能超过900s，当前队列中未消费数量:%s, 请检查!（如果队列数量较小，请忽略报警）' % (queue["@name"], queue["stats"]["@size"])
-                                mq_logger.error(error_log)
+                                warning_log = '%s 表预估延迟有可能超过900s，当前队列中未消费数量:%s, 请检查!（如果队列数量较小，请忽略报警）' % (queue["@name"], queue["stats"]["@size"])
+                                mq_logger.warning(warning_log)
                         else:
                             delay = str(sleep_time) + 's内消费数量为0，暂时无法计算'
                     if queue["stats"]["@size"] == '0':

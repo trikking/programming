@@ -25,3 +25,45 @@
 2016-09-28 19:35:52,094 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.36 new error log found since 2016-09-18 19:35:50
 2016-09-28 19:35:52,124 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.34 new error log found since 2016-09-18 19:35:50
 2016-09-28 19:35:52,181 - dataflume-monitor-logger - ERROR - applier tungsten.jar on 10.249.7.35 new error log found since 2016-09-18 19:35:50
+2016-10-10 13:56:26,978 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.34 monitor error, ssh cmd ps failed !!!
+Traceback (most recent call last):
+  File "/root/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 292, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/util.py", line 270, in retry_on_signal
+    return function()
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 292, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/local/python27/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+KeyboardInterrupt
+
+2016-10-10 13:56:26,974 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.35 monitor error, ssh cmd ps failed !!!
+Traceback (most recent call last):
+  File "/root/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 292, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/util.py", line 270, in retry_on_signal
+    return function()
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 292, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/local/python27/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+KeyboardInterrupt
+
+2016-10-10 13:56:26,974 - dataflume-monitor-logger - CRITICAL - applier tungsten.jar on 10.249.7.36 monitor error, ssh cmd ps failed !!!
+Traceback (most recent call last):
+  File "/root/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 292, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/util.py", line 270, in retry_on_signal
+    return function()
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 292, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/local/python27/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+KeyboardInterrupt
+
