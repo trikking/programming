@@ -30,7 +30,7 @@ dataflume_service_fh.setLevel(logging.INFO)
 dataflume_error_log = 'log/dataflume-error.log'
 dataflume_error_fh = logging.FileHandler(dataflume_error_log)
 dataflume_error_fh = logging.handlers.RotatingFileHandler(dataflume_error_log, maxBytes = 50 * 1024 * 1024, backupCount=10)
-dataflume_error_fh.setLevel(logging.ERROR)
+dataflume_error_fh.setLevel(logging.WARNING)
 
 mq_service_log = 'log/mq-service.log'
 mq_service_fh = logging.FileHandler(mq_service_log)
@@ -123,6 +123,7 @@ def monitor(monitor_type, para = {}):
     priv_error_log_date = date - datetime.timedelta(hours = 1)
     is_loop = 0
     delay_dict_info = {}
+    restart_times = 0
     while True:
         try:
             if monitor_type == 'mq':
@@ -134,11 +135,8 @@ def monitor(monitor_type, para = {}):
                 admin_passwd = para['admin_passwd']
                 admin_web_port = para['admin_web_port']
                 active_mq_http_baseurl = 'http://%s:%s/api/jolokia' % (ip, admin_web_port)
-
-                #surl = '%s/read/org.apache.activemq:type=Broker,brokerName=localhost,destinationType=Queue,destinationName=t_tfr_unload_diffcheck_report/QueueSize' % (active_mq_http_baseurl)
-                check_health_url = '%s/read/org.apache.activemq:type=Broker,brokerName=localhost,service=Health/CurrentStatus' % (active_mq_http_baseurl)
+                check_health_url = '%s/read/org.apache.activemq:type=Broker,brokerName=localhost,service=Health/CurrentStatus' % active_mq_http_baseurl
                 queue_view_url = 'http://%s:%s/admin/xml/queues.jsp' % (ip, admin_web_port)
-
                 passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
                 passman.add_password(None, queue_view_url, admin_user, admin_passwd)
                 auth_handler = urllib2.HTTPBasicAuthHandler(passman)
@@ -147,51 +145,52 @@ def monitor(monitor_type, para = {}):
                 response = urllib2.urlopen(queue_view_url)
                 xml_resContent = response.read()
                 queues_json = xmltodict.parse(xml_resContent)
-                mq_logger.info(mq_monitor_date.strftime("%Y-%m-%d %H:%M:%S") + '的MQ队列情况如下(表名,消息数量(大概多久同步完(s)),消费者数量,进队数量,出队数量):')
-                for queue in queues_json["queues"]["queue"]:
-                    queue_name = queue["@name"]
-                    #print delay_dict_info
+                mq_logger.info(mq_monitor_date.strftime('%Y-%m-%d %H:%M:%S') + '的MQ队列情况如下(表名,消息数量(大概多久同步完(s)),消费者数量,进队数量,出队数量):')
+                for queue in queues_json['queues']['queue']:
+                    queue_name = queue['@name']
                     if is_loop == 0:
                         delay_dict_info[queue_name] = {}
-                        delay_dict_info[queue_name]["priv_size"] = queue["stats"]["@size"]
-                        delay_dict_info[queue_name]["priv_consumerCount"] = queue["stats"]["@consumerCount"]
-                        delay_dict_info[queue_name]["priv_enqueueCount"] = queue["stats"]["@enqueueCount"]
-                        delay_dict_info[queue_name]["priv_dequeueCount"] = queue["stats"]["@dequeueCount"]
+                        delay_dict_info[queue_name]['priv_size'] = queue['stats']['@size']
+                        delay_dict_info[queue_name]['priv_consumerCount'] = queue['stats']['@consumerCount']
+                        delay_dict_info[queue_name]['priv_enqueueCount'] = queue['stats']['@enqueueCount']
+                        delay_dict_info[queue_name]['priv_dequeueCount'] = queue['stats']['@dequeueCount']
                         delay = '监控刚启动，未计算所需同步时间'
                     else:
-                        delay_dict_info[queue_name]["this_size"] = queue["stats"]["@size"]
-                        delay_dict_info[queue_name]["this_consumerCount"] = queue["stats"]["@consumerCount"]
-                        delay_dict_info[queue_name]["this_enqueueCount"] = queue["stats"]["@enqueueCount"]
-                        delay_dict_info[queue_name]["this_dequeueCount"] = queue["stats"]["@dequeueCount"]
-                        #print queue["@name"],delay_dict_info[queue_name]["priv_size"],delay_dict_info[queue_name]["priv_enqueueCount"],delay_dict_info[queue_name]["priv_dequeueCount"],delay_dict_info[queue_name]["this_size"],delay_dict_info[queue_name]["this_enqueueCount"],delay_dict_info[queue_name]["this_dequeueCount"]
-                        if (int(delay_dict_info[queue_name]["this_dequeueCount"]) - int(delay_dict_info[queue_name]["priv_dequeueCount"])) != 0:
-                            delay_seconds = 1.0 * sleep_time * int(delay_dict_info[queue_name]["this_size"]) / (int(delay_dict_info[queue_name]["this_dequeueCount"]) - int(delay_dict_info[queue_name]["priv_dequeueCount"]))
-                            delay_seconds = float("%.2f" % delay_seconds)
+                        delay_dict_info[queue_name]['this_size'] = queue['stats']['@size']
+                        delay_dict_info[queue_name]['this_consumerCount'] = queue['stats']['@consumerCount']
+                        delay_dict_info[queue_name]['this_enqueueCount'] = queue['stats']['@enqueueCount']
+                        delay_dict_info[queue_name]['this_dequeueCount'] = queue['stats']['@dequeueCount']
+                        if int(delay_dict_info[queue_name]['this_dequeueCount']) - int(delay_dict_info[queue_name]['priv_dequeueCount']) != 0:
+                            delay_seconds = 1.0 * sleep_time * int(delay_dict_info[queue_name]['this_size']) / (int(delay_dict_info[queue_name]['this_dequeueCount']) - int(delay_dict_info[queue_name]['priv_dequeueCount']))
+                            delay_seconds = float('%.2f' % delay_seconds)
                             delay = str(delay_seconds) + 's'
                             if delay_seconds > 900:
-                                warning_log = '%s 表预估延迟有可能超过900s，当前队列中未消费数量:%s, 请检查!（如果队列数量较小，请忽略报警）' % (queue["@name"], queue["stats"]["@size"])
+                                warning_log = '%s 表预估延迟有可能超过900s，当前队列中未消费数量:%s, 请检查!（如果队列数量较小，请忽略报警）' % (queue['@name'], queue['stats']['@size'])
                                 mq_logger.warning(warning_log)
                         else:
                             delay = str(sleep_time) + 's内消费数量为0，暂时无法计算'
-                    if queue["stats"]["@size"] == '0':
+                            if int(delay_dict_info[queue_name]['this_size']) >= 500:
+                                warning_log = '%s 表剩余未消费数量超过500条，且过去5分钟没有数据被消费，请检查！' % queue['@name']
+                                mq_logger.warning(warning_log)
+                    if queue['stats']['@size'] == '0':
                         delay = '无延迟'
-
-                    mq_logger.info("%s,%s(所需同步时间:%s),%s,%s,%s" % (queue["@name"], 
-                                                       queue["stats"]["@size"], 
-                                                       delay,
-                                                       queue["stats"]["@consumerCount"], 
-                                                       queue["stats"]["@enqueueCount"], 
-                                                       queue["stats"]["@dequeueCount"]))
-                    if int(queue["stats"]["@consumerCount"]) == 0:
-                        error_log = 'Number of consumer(s) on queue %s(MQ IP:%s port:%s) is 0, please check!!!' % (queue["@name"], ip, admin_web_port)
+                    mq_logger.info('%s,%s(所需同步时间:%s),%s,%s,%s' % (queue['@name'],
+                     queue['stats']['@size'],
+                     delay,
+                     queue['stats']['@consumerCount'],
+                     queue['stats']['@enqueueCount'],
+                     queue['stats']['@dequeueCount']))
+                    if int(queue['stats']['@consumerCount']) == 0:
+                        error_log = 'Number of consumer(s) on queue %s(MQ IP:%s port:%s) is 0, please check!!!' % (queue['@name'], ip, admin_web_port)
                         mq_logger.error(error_log)
                     if is_loop == 1:
-                        delay_dict_info[queue_name]["priv_size"] = queue["stats"]["@size"]
-                        delay_dict_info[queue_name]["priv_consumerCount"] = queue["stats"]["@consumerCount"]
-                        delay_dict_info[queue_name]["priv_enqueueCount"] = queue["stats"]["@enqueueCount"]
-                        delay_dict_info[queue_name]["priv_dequeueCount"] = queue["stats"]["@dequeueCount"]
+                        delay_dict_info[queue_name]['priv_size'] = queue['stats']['@size']
+                        delay_dict_info[queue_name]['priv_consumerCount'] = queue['stats']['@consumerCount']
+                        delay_dict_info[queue_name]['priv_enqueueCount'] = queue['stats']['@enqueueCount']
+                        delay_dict_info[queue_name]['priv_dequeueCount'] = queue['stats']['@dequeueCount']
+
                 time.sleep(sleep_time - 10)
-                mq_logger.info('\n' * 3)
+                mq_logger.info('\n\n\n')
                 is_loop = 1
 
             if monitor_type == 'extractor' or monitor_type == 'applier':
@@ -208,10 +207,21 @@ def monitor(monitor_type, para = {}):
                         error_info = '%s %s on %s monitor error, ssh cmd ps failed !!!' % (monitor_type, app_pattern, ip)
                     else:
                         error_info = "%s %s on %s is NOT running!!!" % (monitor_type, app_pattern, ip)
+                        if monitor_type == 'extractor':
+                            if restart_times < 3:
+                                restart_cmd = "cd %s; nohup ./run.sh >>restart.log 2>&1 &" % (app_dir)
+                                restart_result = ssh_outs(ip = ip, port = ssh_port, cmd = restart_cmd, user = ssh_user)
+                                dataflume_logger.warning('%s %s on %s stopped, now I tryed to start it up! %s times!' % (monitor_type, app_pattern, ip, restart_times + 1))
+                                restart_times = restart_times + 1
+                                time.sleep(10)
+                                continue
+                            else:
+                                dataflume_logger.error('%s %s on %s stopped, and I have tried 3 times, and I cannot start it up again!!!' % (monitor_type, app_pattern, ip))
                     dataflume_logger.critical(error_info + '\n' + monitor_result["message"])
                     # send SMS error_info
                         
                 else:
+                    restart_times = 0
                     monitor_log_cmd = """ ls --full-time %s/log/error.log | awk '{print $6 " " $7}' | sed 's/\..*$//g' """ % (app_dir)
                     monitor_log_result = ssh_outs(ip = ip, port = ssh_port, cmd = monitor_log_cmd, user = ssh_user)
                     if monitor_log_result['status'] == 'failure':
@@ -241,10 +251,10 @@ def multi_monitor():
         t = multiprocessing.Process(target = monitor, args = ('mq', mq_para,))
         t.daemon = True
         threads.append(t)
-    #for extractor_para in extractor_para_list:
-    #    t = multiprocessing.Process(target = monitor, args = ('extractor', extractor_para,))
-    #    t.daemon = True
-    #    threads.append(t)
+    for extractor_para in extractor_para_list:
+        t = multiprocessing.Process(target = monitor, args = ('extractor', extractor_para,))
+        t.daemon = True
+        threads.append(t)
     for applier_para in applier_para_list:
         t = multiprocessing.Process(target = monitor, args = ('applier', applier_para,))
         t.daemon = True

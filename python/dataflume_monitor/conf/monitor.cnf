@@ -10,21 +10,21 @@ admin_passwd=admin
 admin_web_port=8162
 
 [extractor-default]
-ssh_port=14816
-ssh_user=appman
+ssh_port=22
+ssh_user=tungsten
 app_pattern=tungsten.jar
 
 [extractor-1]
 ip=10.166.224.81
 ssh_port=22
-ssh_user=appman
+ssh_user=tungsten
 app_dir=syncapp-pnode
 app_pattern=tungsten.jar
 
 [extractor-2]
 ip=10.166.224.83
 ssh_port=22
-ssh_user=appman
+ssh_user=tungsten
 app_dir=syncapp-snode
 app_pattern=tungsten.jar
 

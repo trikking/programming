@@ -67,3 +67,40 @@ Traceback (most recent call last):
     return getattr(self._sock,name)(*args)
 KeyboardInterrupt
 
+2016-10-10 19:22:08,424 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.81 monitor error, ssh cmd ps failed !!!
+Traceback (most recent call last):
+  File "/home/scott/git/programming/python/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 311, in connect
+    raise NoValidConnectionsError(errors)
+NoValidConnectionsError: [Errno None] Unable to connect to port 14816 on  or 10.166.224.81
+
+2016-10-10 19:22:08,426 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.83 monitor error, ssh cmd ps failed !!!
+Traceback (most recent call last):
+  File "/home/scott/git/programming/python/dataflume_monitor/common.py", line 32, in ssh_outs
+    timeout = global_timeout)
+  File "/usr/local/python27/lib/python2.7/site-packages/paramiko/client.py", line 311, in connect
+    raise NoValidConnectionsError(errors)
+NoValidConnectionsError: [Errno None] Unable to connect to port 14816 on  or 10.166.224.83
+
+2016-10-10 19:29:54,809 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 1 times!
+2016-10-10 19:31:05,391 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 2 times!
+2016-10-10 19:32:15,966 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 3 times!
+2016-10-10 19:33:26,549 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 4 times!
+2016-10-10 19:34:36,892 - dataflume-monitor-logger - ERROR - extractor tungsten.jar on 10.166.224.83 stopped, and I have tried 3 times, and I cannot start it up again!!!
+2016-10-10 19:34:36,893 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.83 is NOT running!!!
+
+2016-10-10 19:35:37,214 - dataflume-monitor-logger - ERROR - extractor tungsten.jar on 10.166.224.83 stopped, and I have tried 3 times, and I cannot start it up again!!!
+2016-10-10 19:35:37,215 - dataflume-monitor-logger - CRITICAL - extractor tungsten.jar on 10.166.224.83 is NOT running!!!
+
+2016-10-10 19:37:38,402 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 1 times!
+2016-10-10 19:38:48,990 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 2 times!
+2016-10-10 19:41:00,113 - dataflume-monitor-logger - ERROR - extractor tungsten.jar on 10.166.224.83 new error log found since 2016-10-10 17:25:27
+2016-10-10 19:43:04,790 - dataflume-monitor-logger - ERROR - extractor tungsten.jar on 10.166.224.83 new error log found since 2016-10-10 18:42:04
+2016-10-10 19:44:05,309 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 1 times!
+2016-10-10 19:44:05,331 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.81 stopped, now I tryed to start it up! 1 times!
+2016-10-10 19:45:15,899 - dataflume-monitor-logger - ERROR - extractor tungsten.jar on 10.166.224.83 new error log found since 2016-10-10 19:41:58
+2016-10-10 19:46:16,643 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 1 times!
+2016-10-10 19:47:17,135 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.81 stopped, now I tryed to start it up! 1 times!
+2016-10-10 19:47:27,220 - dataflume-monitor-logger - ERROR - extractor tungsten.jar on 10.166.224.83 new error log found since 2016-10-10 19:44:29
+2016-10-10 19:48:27,859 - dataflume-monitor-logger - WARNING - extractor tungsten.jar on 10.166.224.83 stopped, now I tryed to start it up! 1 times!
